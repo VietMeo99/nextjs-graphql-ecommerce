@@ -12,7 +12,7 @@
     */
 
     /*
-    * primary color 
+    * primary color
     */
     --color-accent: 0, 159, 127;
 
@@ -308,4 +308,4 @@
     @apply no-underline;
   }
 }
-@import "./custom-plugins.css";
+@import './custom-plugins.css';

@@ -216,15 +216,15 @@ export interface QuestionQueryOptions extends QueryOptions {
   question?: string;
 }
 
-export interface MyQuestionQueryOptions extends QueryOptions {}
+export interface MyQuestionQueryOptions extends QueryOptions { }
 
 export interface MyReportsQueryOptions extends QueryOptions {
   language: any;
 }
 
-export interface SettingsQueryOptions extends QueryOptions {}
+export interface SettingsQueryOptions extends QueryOptions { }
 
-export interface WishlistQueryOptions extends QueryOptions {}
+export interface WishlistQueryOptions extends QueryOptions { }
 
 export interface Product {
   id: string;
@@ -727,9 +727,9 @@ export interface UpdateEmailUserInput {
   email: string;
 }
 
-export interface PasswordChangeResponse extends Success {}
+export interface PasswordChangeResponse extends Success { }
 
-export interface EmailChangeResponse extends Success {}
+export interface EmailChangeResponse extends Success { }
 export interface VerificationEmailUserInput extends Success {
   email: string;
 }
@@ -1032,47 +1032,47 @@ export enum DiscountType {
   FixedRate = 'fixed_rate',
 }
 
-export interface CategoryPaginator extends PaginatorInfo<Category> {}
+export interface CategoryPaginator extends PaginatorInfo<Category> { }
 
-export interface RefundReasonPaginator extends PaginatorInfo<RefundReason> {}
-export interface ProductPaginator extends PaginatorInfo<Product> {}
+export interface RefundReasonPaginator extends PaginatorInfo<RefundReason> { }
+export interface ProductPaginator extends PaginatorInfo<Product> { }
 
-export interface CategoryPaginator extends PaginatorInfo<Category> {}
+export interface CategoryPaginator extends PaginatorInfo<Category> { }
 
-export interface ShopPaginator extends PaginatorInfo<Shop> {}
+export interface ShopPaginator extends PaginatorInfo<Shop> { }
 
-export interface AuthorPaginator extends PaginatorInfo<Author> {}
+export interface AuthorPaginator extends PaginatorInfo<Author> { }
 
-export interface ManufacturerPaginator extends PaginatorInfo<Manufacturer> {}
+export interface ManufacturerPaginator extends PaginatorInfo<Manufacturer> { }
 
-export interface FaqsPaginator extends PaginatorInfo<FAQS> {}
+export interface FaqsPaginator extends PaginatorInfo<FAQS> { }
 
 export interface TermsAndConditionsPaginator
-  extends PaginatorInfo<TermsAndConditions> {}
+  extends PaginatorInfo<TermsAndConditions> { }
 
-export interface CouponPaginator extends PaginatorInfo<Coupon> {}
+export interface CouponPaginator extends PaginatorInfo<Coupon> { }
 
-export interface StoreNoticePaginator extends PaginatorInfo<StoreNotice> {}
+export interface StoreNoticePaginator extends PaginatorInfo<StoreNotice> { }
 
-export interface TagPaginator extends PaginatorInfo<Tag> {}
+export interface TagPaginator extends PaginatorInfo<Tag> { }
 
-export interface OrderPaginator extends PaginatorInfo<Order> {}
+export interface OrderPaginator extends PaginatorInfo<Order> { }
 
-export interface OrderStatusPaginator extends PaginatorInfo<OrderStatus> {}
+export interface OrderStatusPaginator extends PaginatorInfo<OrderStatus> { }
 
-export interface RefundPaginator extends PaginatorInfo<Refund> {}
+export interface RefundPaginator extends PaginatorInfo<Refund> { }
 
-export interface RefundPolicyPaginator extends PaginatorInfo<RefundPolicy> {}
+export interface RefundPolicyPaginator extends PaginatorInfo<RefundPolicy> { }
 
-export interface ReviewPaginator extends PaginatorInfo<Review> {}
+export interface ReviewPaginator extends PaginatorInfo<Review> { }
 
-export interface QuestionPaginator extends PaginatorInfo<Question> {}
+export interface QuestionPaginator extends PaginatorInfo<Question> { }
 
-export interface ReportsPaginator extends PaginatorInfo<Question> {}
+export interface ReportsPaginator extends PaginatorInfo<Question> { }
 
 export interface DownloadableFilePaginator
-  extends PaginatorInfo<DownloadableFile> {}
+  extends PaginatorInfo<DownloadableFile> { }
 
-export interface WishlistPaginator extends PaginatorInfo<Wishlist> {}
+export interface WishlistPaginator extends PaginatorInfo<Wishlist> { }
 
-export interface FlashSalePaginator extends PaginatorInfo<FlashSale> {}
+export interface FlashSalePaginator extends PaginatorInfo<FlashSale> { }
