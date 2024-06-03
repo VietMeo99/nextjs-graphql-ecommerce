@@ -89,7 +89,7 @@ const ShopsPage: NextPageWithLayout = () => {
           {data?.map(
             (shop) =>
               // @ts-ignore
-              shop?.distance && <NearShopCard key={shop.id} shop={shop!} />,
+              shop?.distance && <NearShopCard key={shop.id} shop={shop!} />
           )}
         </div>
         {hasMore && (

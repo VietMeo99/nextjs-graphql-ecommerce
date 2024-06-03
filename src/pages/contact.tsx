@@ -139,5 +139,6 @@ export const ContactPage = () => {
     </>
   );
 };
+
 ContactPage.getLayout = getLayoutWithFooter;
 export default ContactPage;

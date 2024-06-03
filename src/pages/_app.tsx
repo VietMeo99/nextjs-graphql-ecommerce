@@ -16,6 +16,7 @@ import QueryProvider from '@/framework/client/query-provider';
 import { getDirection } from '@/lib/constants';
 import { useRouter } from 'next/router';
 import dynamic from 'next/dynamic';
+
 const ToastContainer = dynamic(
   () => import('react-toastify').then((module) => module.ToastContainer),
   { ssr: false },
@@ -39,6 +40,7 @@ function CustomApp({
   const authenticationRequired = Component.authenticationRequired ?? false;
   const { locale } = useRouter();
   const dir = getDirection(locale);
+
   return (
     <>
       <div dir={dir}>

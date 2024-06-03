@@ -25,7 +25,7 @@ export const cartAnimation = (event: any) => {
     'px;left:' +
     disLeft +
     'px;transition: left 1s, top 1s, width 1s, opacity 1s cubic-bezier(1, 1, 1, 1);border-radius: 50px; overflow: hidden; box-shadow: 0 21px 36px rgba(0,0,0,0.1)';
-  var reChange = document.body.appendChild(image);
+  let reChange = document.body.appendChild(image);
   setTimeout(function () {
     image.style.left = cartLeft + 'px';
     image.style.top = cartTop + 'px';

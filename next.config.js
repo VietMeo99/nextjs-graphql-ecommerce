@@ -13,6 +13,12 @@ module.exports = {
       '127.0.0.1',
       'i.pravatar.cc',
     ],
+    remotePatterns: [
+      {
+        protocol: 'https',
+        hostname: '**',
+      },
+    ],
   },
   ...(process.env.FRAMEWORK_PROVIDER === 'graphql' && {
     webpack(config, options) {

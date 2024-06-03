@@ -17,7 +17,6 @@
     "paths": {
       "@/*": ["./src/*"],
       "@/framework/*": ["src/framework/rest/*"],
-      // "@/framework/gql/*": ["src/framework/graphql/*"],
       "@/framework/static/*": ["src/framework/static/*"]
     }
   },

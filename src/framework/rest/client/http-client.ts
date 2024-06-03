@@ -7,7 +7,7 @@ import Cookies from 'js-cookie';
 
 const Axios = axios.create({
   baseURL: process.env.NEXT_PUBLIC_REST_API_ENDPOINT,
-  timeout: 5000000,
+  timeout: 500000,
   headers: {
     'Content-Type': 'application/json',
   },
@@ -46,7 +46,7 @@ Axios.interceptors.response.use(
     // TODO: fake data, remove later
     return {};
     // return Promise.reject(error);
-  }
+  },
 );
 
 export class HttpClient {
@@ -83,7 +83,7 @@ export class HttpClient {
           'shops',
         ].includes(k)
           ? `${k}.slug:${v}`
-          : `${k}:${v}`
+          : `${k}:${v}`,
       )
       .join(';');
   }

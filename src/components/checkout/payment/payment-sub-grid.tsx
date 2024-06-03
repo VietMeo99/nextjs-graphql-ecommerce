@@ -62,8 +62,8 @@ const PaymentSubGrid: React.FC<{
     } else {
       setSubGateway('');
     }
-  }, [gateway, subGateway]);
-  
+  }, [gateway, setSubGateway, subGateway]);
+
   return (
     <Fragment>
       {gateway && gateway === 'PAYMONGO' ? (
