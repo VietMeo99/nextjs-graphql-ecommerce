@@ -41,7 +41,7 @@ import {
   useLoginMutation,
   useLogoutMutation,
   useOtpLoginMutation,
-  useRegisterMutation,
+  useRegisterMutation, 
   useResendVerificationEmailMutation,
   useResetPasswordMutation,
   useSendOtpCodeMutation,

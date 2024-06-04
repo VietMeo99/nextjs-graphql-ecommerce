@@ -64,7 +64,7 @@ export function useUser() {
           }
         }
       },
-    }
+    },
   );
   //TODO: do some improvement here
   return { me: data, isLoading, error, isAuthorized };
@@ -310,7 +310,7 @@ export function useRegister() {
   const [_, setAuthorized] = useAtom(authorizationAtom);
   const { closeModal } = useModalAction();
   let [formError, setFormError] = useState<Partial<RegisterUserInput> | null>(
-    null
+    null,
   );
 
   const { mutate, isLoading } = useMutation(client.users.register, {
@@ -353,7 +353,7 @@ export function useResendVerificationEmail() {
 
         toast.error(data?.message);
       },
-    }
+    },
   );
 
   return { mutate, isLoading };
@@ -485,7 +485,7 @@ export function useVerifyForgotPasswordToken() {
       onSettled: () => {
         queryClient.clear();
       },
-    }
+    },
   );
 
   return { mutate, isLoading, formError, setFormError };

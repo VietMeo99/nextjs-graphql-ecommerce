@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import React, { useState } from 'react';
 import { QueryClient, QueryClientProvider } from 'react-query';
 import { Hydrate } from 'react-query/hydration';
 import { ReactQueryDevtools } from 'react-query/devtools';
@@ -16,15 +16,9 @@ export default function QueryProvider({
 
   return (
     <QueryClientProvider client={queryClient}>
-      <Hydrate
-        state={
-          //@ts-ignore
-          pageProps.dehydratedState
-        }
-      >
-        {children}
-      </Hydrate>
+      <Hydrate state={pageProps.dehydratedState}>{children}</Hydrate>
       <ReactQueryDevtools />
     </QueryClientProvider>
   );
 }
+// // @ts-ignore

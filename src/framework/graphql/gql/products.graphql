@@ -22,6 +22,7 @@ fragment QuestionParts on Question {
     negative
   }
 }
+
 query Products(
   $search: String
   $date_range: String
@@ -207,20 +208,20 @@ query DownloadableProducts($first: Int = 15, $page: Int) {
 }
 
 query Questions(
-  $product_id: ID
   $shop_id: ID
-  $question: String
   $orderBy: [QueryQuestionsOrderByOrderByClause!]
+  $product_id: ID
+  $question: String
   $first: Int = 15
   $page: Int
 ) {
   questions(
-    product_id: $product_id
-    shop_id: $shop_id
-    question: $question
     orderBy: $orderBy
-    first: $first
-    page: $page
+    shop_id: $shop_id
+    # question: $question
+    # product_id: $product_id
+    # first: $first
+    # page: $page
   ) {
     data {
       ...QuestionParts

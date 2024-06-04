@@ -13,21 +13,27 @@ export const getStaticProps: GetStaticProps = async ({ locale }) => {
   const queryClient = new QueryClient();
   await queryClient.prefetchQuery(
     [API_ENDPOINTS.SETTINGS, { language: locale }],
-    ({ queryKey }) => client.settings.all(queryKey[1] as SettingsQueryOptions)
+    ({ queryKey }) => client.settings.all(queryKey[1] as SettingsQueryOptions),
   );
   await queryClient.prefetchQuery(
     [API_ENDPOINTS.TYPES, { limit: TYPES_PER_PAGE, language: locale }],
-    ({ queryKey }) => client.types.all(queryKey[1] as TypeQueryOptions)
+    ({ queryKey }) => client.types.all(queryKey[1] as TypeQueryOptions),
   );
   await queryClient.prefetchInfiniteQuery(
-    [API_ENDPOINTS.TERMS_AND_CONDITIONS, {
-      type: 'global',
-      issued_by: 'Super Admin',
-      limit: LIMIT_HUNDRED,
-      is_approved: true,
-      language: locale,
-    }],
-    ({ queryKey }) => client.termsAndConditions.all(queryKey[1] as TermsAndConditionsQueryOptions)
+    [
+      API_ENDPOINTS.TERMS_AND_CONDITIONS,
+      {
+        type: 'global',
+        issued_by: 'Super Admin',
+        limit: LIMIT_HUNDRED,
+        is_approved: true,
+        language: locale,
+      },
+    ],
+    ({ queryKey }) =>
+      client.termsAndConditions.all(
+        queryKey[1] as TermsAndConditionsQueryOptions,
+      ),
   );
   return {
     props: {

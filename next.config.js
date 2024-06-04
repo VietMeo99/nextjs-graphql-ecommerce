@@ -1,6 +1,10 @@
 /** @type {import('next').NextConfig} */
 const { i18n } = require('./next-i18next.config');
 
+// const withGraphQLLetPlugin = require("next-graphql-let-plugin")({
+//   // Plugin options go here...
+// });
+
 module.exports = {
   reactStrictMode: true,
   i18n,
@@ -16,7 +20,7 @@ module.exports = {
     remotePatterns: [
       {
         protocol: 'https',
-        hostname: '**',
+        hostname: '**', 
       },
     ],
   },
@@ -25,6 +29,7 @@ module.exports = {
       config.module.rules.push({
         test: /\.graphql$/,
         exclude: /node_modules/,
+        // use: [options.defaultLoaders.babel, { loader: 'graphql-tag/loader' }],
         use: [options.defaultLoaders.babel, { loader: 'graphql-let/loader' }],
       });
 

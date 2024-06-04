@@ -65,7 +65,7 @@ function createApolloClient() {
           Router.push(Routes.verifyEmail);
         }
         console.log(
-          `[GraphQL error]: Message: ${message}, Location: ${locations}, Path: ${path}`
+          `[GraphQL error]: Message: ${message}, Location: ${locations}, Path: ${path}`,
         );
       });
 
@@ -163,7 +163,7 @@ export function initializeApollo(initialState?: NormalizedCacheObject | null) {
       arrayMerge: (destinationArray, sourceArray) => [
         ...sourceArray,
         ...destinationArray.filter((d) =>
-          sourceArray.every((s) => !isEqual(d, s))
+          sourceArray.every((s) => !isEqual(d, s)),
         ),
       ],
     });
@@ -180,7 +180,7 @@ export function initializeApollo(initialState?: NormalizedCacheObject | null) {
 
 export function addApolloState(
   client: ApolloClient<NormalizedCacheObject>,
-  pageProps: AppProps['pageProps']
+  pageProps: AppProps['pageProps'],
 ) {
   //@ts-ignore
   if (pageProps?.props) {
@@ -191,7 +191,7 @@ export function addApolloState(
 }
 
 export function useApollo(pageProps: AppProps['pageProps']) {
-  //@ts-ignore
+  ////@ts-ignore
   const state = pageProps[APOLLO_STATE_PROP_NAME];
   return useMemo(() => initializeApollo(state), [state]);
 }
