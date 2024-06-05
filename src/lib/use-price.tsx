@@ -49,6 +49,55 @@ export function formatVariantPrice({
   return { price, basePrice, discount };
 }
 
+// export default function usePrice(
+//   data?: {
+//     amount: number;
+//     baseAmount?: number;
+//     currencyCode?: string;
+//   } | null,
+// ) {
+//   const { settings } = useSettings();
+//   const currency = settings?.currency;
+//   const currencyOptions = settings?.yOptions;
+//   const { amount, baseAmount, currencyCode, currencyOptionsFormat } = {
+//     ...data,
+//     currencyCode: currency ?? 'USD',
+//     currencyOptionsFormat: currencyOptions ?? {
+//       formation: 'en-US',
+//       fractions: 2,
+//     },
+//   };
+//   const { formation = 'en-US', fractions = 2 } = currencyOptionsFormat!;
+
+//   const { locale } = useRouter();
+//   const value = useMemo(() => {
+//     if (typeof amount !== 'number' || !currencyCode) return '';
+//     const fractionalDigit = fractions ? fractions : 2;
+//     let currentLocale = formation ? formation : 'en';
+//     // if (process.env.NEXT_PUBLIC_ENABLE_MULTI_LANG) {
+//     //   currentLocale = locale ? locale : 'en';
+//     // }
+//     return baseAmount
+//       ? formatVariantPrice({
+//           amount,
+//           baseAmount,
+//           currencyCode,
+//           locale: currentLocale,
+//           fractions: fractionalDigit,
+//         })
+//       : formatPrice({
+//           amount,
+//           currencyCode,
+//           locale: currentLocale,
+//           fractions: fractionalDigit,
+//         });
+//   }, [amount, baseAmount, currencyCode, formation, fractions]);
+
+//   return typeof value === 'string'
+//     ? { price: value, basePrice: null, discount: null }
+//     : value;
+// }
+
 export default function usePrice(
   data?: {
     amount: number;
@@ -56,9 +105,14 @@ export default function usePrice(
     currencyCode?: string;
   } | null,
 ) {
-  const { settings } = useSettings();
-  const currency = settings?.currency;
-  const currencyOptions = settings?.currencyOptions;
+  // const { settings } = useSettings();
+  // const currency = settings?.currency;
+  // const currencyOptions = settings?.currencyOptions;
+  const currency = 'USD';
+  const currencyOptions = {
+    formation: 'en-US',
+    fractions: 2,
+  };
   const { amount, baseAmount, currencyCode, currencyOptionsFormat } = {
     ...data,
     currencyCode: currency ?? 'USD',
@@ -69,7 +123,7 @@ export default function usePrice(
   };
   const { formation = 'en-US', fractions = 2 } = currencyOptionsFormat!;
 
-  const { locale } = useRouter();
+  // const { locale } = useRouter();
   const value = useMemo(() => {
     if (typeof amount !== 'number' || !currencyCode) return '';
     const fractionalDigit = fractions ? fractions : 2;
@@ -92,7 +146,9 @@ export default function usePrice(
           locale: currentLocale,
           fractions: fractionalDigit,
         });
-  }, [amount, baseAmount, currencyCode, formation, fractions]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [amount, baseAmount, currencyCode]);
+  // }, [amount, baseAmount, currencyCode, locale]);
 
   return typeof value === 'string'
     ? { price: value, basePrice: null, discount: null }

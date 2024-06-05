@@ -8,14 +8,14 @@
     "dev": "next dev",
     "build": "next build",
     "dev:rest": "next dev -p 3003",
-    "build:rest": "next build", 
-    "codegen": "node -r dotenv/config $(pnpm bin)/graphql-let", 
+    "build:rest": "next build",
+    "codegen": "node -r dotenv/config $(pnpm bin)/graphql-let",
     "dev:gql": "pnpm graphql-let && next dev -p 3001",
     "build:gql": "pnpm graphql-let && next build",
     "generate": "graphql-codegen --config .graphqlrc.yaml -w",
     "start": "next start",
     "lint": "next lint",
-    "prepare": "husky" 
+    "prepare": "husky"
   },
   "dependencies": {
     "@apollo/client": "^3.10.4",
@@ -52,7 +52,7 @@
     "rc-pagination": "^4.1.0",
     "rc-rate": "^2.13.0",
     "rc-slider": "^10.6.2",
-    "rc-table": "^7.46.0",
+    "rc-table": "^7.45.7",
     "react": "^18",
     "react-content-loader": "^7.0.0",
     "react-copy-to-clipboard": "^5.1.0",

@@ -239,7 +239,7 @@ function OrderView({ order, language, loadingStatus }: any) {
             </div>
             <div className="mt-12">
               <OrderItems
-                products={order?.products}
+                products={order?.products || []}
                 orderId={order?.id}
                 orderStatus={order?.order_status}
                 refund={Boolean(
@@ -263,14 +263,15 @@ function OrderView({ order, language, loadingStatus }: any) {
                       {t('message-sub-order')}
                     </p>
                   </div>
-                  {Array.isArray(order?.children) && order?.children.length && (
-                    <div className="">
-                      <SuborderItems
-                        items={order?.children}
-                        orderStatus={order?.order_status}
-                      />
-                    </div>
-                  )}
+                  {Array.isArray(order?.children) &&
+                    order?.children?.length && (
+                      <div className="">
+                        <SuborderItems
+                          items={order?.children}
+                          orderStatus={order?.order_status}
+                        />
+                      </div>
+                    )}
                 </div>
               </div>
             ) : null}

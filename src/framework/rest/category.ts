@@ -4,6 +4,7 @@ import client from './client';
 import { API_ENDPOINTS } from './client/api-endpoints';
 import { mapPaginatorData } from '@/framework/utils/data-mappers';
 import { useRouter } from 'next/router';
+import { TIME_CACHE } from '@/config/get-env';
 
 export function useCategories(options?: Partial<CategoryQueryOptions>) {
   const { locale } = useRouter();
@@ -28,6 +29,7 @@ export function useCategories(options?: Partial<CategoryQueryOptions>) {
     {
       getNextPageParam: ({ current_page, last_page }) =>
         last_page > current_page && { page: current_page + 1 },
+      staleTime: TIME_CACHE,
     },
   );
 

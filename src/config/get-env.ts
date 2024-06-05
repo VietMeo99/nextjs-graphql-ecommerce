@@ -16,9 +16,10 @@ type EnvVariables = {
   readonly GOOGLE_CLIENT_SECRET: string;
   readonly FACEBOOK_CLIENT_ID: string;
   readonly FACEBOOK_CLIENT_SECRET: string;
+  readonly TIME_CACHE: number;
 };
 export function getEnv(
-  name: keyof EnvVariables
+  name: keyof EnvVariables,
 ): EnvVariables[keyof EnvVariables] {
   const val = process.env[name];
   if (!val) {
@@ -26,3 +27,5 @@ export function getEnv(
   }
   return val;
 }
+
+export const TIME_CACHE = Number(process.env.TIME_CACHE || 60 * 60 * 1000);

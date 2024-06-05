@@ -11,6 +11,7 @@ import { toast } from 'react-toastify';
 import { useTranslation } from 'next-i18next';
 import { useRouter } from 'next/router';
 import { setMaintenanceDetails } from './utils/maintenance-utils';
+import { TIME_CACHE } from '@/config/get-env';
 
 export function useSettings() {
   const { locale } = useRouter();
@@ -22,7 +23,8 @@ export function useSettings() {
   const { data, isLoading, error, isFetching } = useQuery<Settings, Error>(
     [API_ENDPOINTS.SETTINGS, formattedOptions],
     ({ queryKey, pageParam }) =>
-      client.settings.all(Object.assign({}, queryKey[1], pageParam))
+      client.settings.all(Object.assign({}, queryKey[1], pageParam)),
+    { staleTime: TIME_CACHE },
   );
   const { isUnderMaintenance = false, maintenance = {} } = data?.options! ?? {};
   setMaintenanceDetails(isUnderMaintenance, maintenance);
@@ -36,14 +38,14 @@ export function useSettings() {
 
 export const useUploads = ({ onChange, defaultFiles }: any) => {
   const [files, setFiles] = useState<FileWithPath[]>(
-    getPreviewImage(defaultFiles)
+    getPreviewImage(defaultFiles),
   );
 
   const { mutate: upload, isLoading } = useMutation(client.settings.upload, {
     onSuccess: (data) => {
       if (onChange) {
         const dataAfterRemoveTypename = data?.map(
-          ({ __typename, ...rest }: any) => rest
+          ({ __typename, ...rest }: any) => rest,
         );
         onChange(dataAfterRemoveTypename);
         setFiles(getPreviewImage(dataAfterRemoveTypename));

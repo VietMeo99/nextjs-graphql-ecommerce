@@ -10,12 +10,13 @@ import { Routes } from '@/config/routes';
 import { getReview } from '@/lib/get-review';
 import { OrderStatus, Product } from '@/types';
 import classNames from 'classnames';
+import React from 'react';
 
 //FIXME: need to fix this usePrice hooks issue within the table render we may check with nested property
 const OrderItemList = (_: any, record: any) => {
-  const { price } = usePrice({
-    amount: record.pivot?.unit_price,
-  });
+  // const { price } = usePrice({
+  //   amount: record?.pivot?.unit_price || 0,
+  // });
   let name = record.name;
   if (record?.pivot?.variation_option_id) {
     const variationTitle = record?.variation_options?.find(
@@ -52,11 +53,21 @@ const OrderItemList = (_: any, record: any) => {
           </span>
         </div>
         <span className="mb-1 inline-block overflow-hidden truncate text-sm font-semibold text-accent">
-          {price}
+          {/* {price} */}
+          {record?.pivot?.unit_price}
         </span>
       </div>
     </div>
   );
+};
+
+const RenderPrice = (_: any, record: any) => {
+  console.log('record :', record);
+
+  const { price } = usePrice({
+    amount: record?.pivot?.subtotal,
+  });
+  return <p>{record?.pivot?.subtotal}</p>;
 };
 export const OrderItems = ({
   products,
@@ -64,7 +75,7 @@ export const OrderItems = ({
   orderStatus,
   refund,
 }: {
-  products: Product;
+  products: Product[];
   orderId: any;
   orderStatus: string;
   refund: boolean;
@@ -76,7 +87,7 @@ export const OrderItems = ({
   const orderTableColumns = [
     {
       title: <span className="ltr:pl-20 rtl:pr-20">{t('text-item')}</span>,
-      dataIndex: '',
+      dataIndex: 'items',
       key: 'items',
       align: alignLeft,
       width: 250,
@@ -95,17 +106,18 @@ export const OrderItems = ({
     },
     {
       title: t('text-price'),
-      dataIndex: 'pivot',
+      dataIndex: 'price',
       key: 'price',
       align: alignRight,
       width: 100,
-      render: function RenderPrice(pivot: any) {
-        const { price } = usePrice({
-          amount: pivot?.subtotal,
-        });
-
-        return <div>{price}</div>;
-      },
+      // render: function RenderPrice(pivot: any) {
+      //   // const { price } = usePrice({
+      //   //   amount: pivot?.subtotal,
+      //   // });
+      //   // return <div>{price}</div>;
+      //   return <div>{pivot?.subtotal}</div>;
+      // },
+      render: RenderPrice,
     },
     {
       title: '',
@@ -152,12 +164,11 @@ export const OrderItems = ({
     <Table
       //@ts-ignore
       columns={orderTableColumns}
-      //@ts-ignore
-      data={products as Product}
+      data={products}
       rowKey={(record: any) =>
-        record.pivot?.variation_option_id
+        record?.pivot?.variation_option_id
           ? record.pivot.variation_option_id
-          : record.created_at
+          : record?.created_at || new Date().getTime()
       }
       className="orderDetailsTable w-full"
       rowClassName="!cursor-auto"

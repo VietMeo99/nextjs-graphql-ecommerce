@@ -39,7 +39,7 @@ export function useType(slug: string) {
     },
   });
   return {
-    type: data?.type,
+    type: data?.type || '',
     isLoading,
     error,
   };

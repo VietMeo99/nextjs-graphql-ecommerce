@@ -9,7 +9,7 @@ dependencies:
     specifier: ^3.10.4
     version: 3.10.4(@types/react@18.3.3)(graphql@16.8.1)(react-dom@18.3.1)(react@18.3.1)
   '@floating-ui/react':
-    specifier: ^0.26.16
+    specifier: '^0.26.16 '
     version: 0.26.16(react-dom@18.3.1)(react@18.3.1)
   '@headlessui/react':
     specifier: ^2.0.4
@@ -108,8 +108,8 @@ dependencies:
     specifier: ^10.6.2
     version: 10.6.2(react-dom@18.3.1)(react@18.3.1)
   rc-table:
-    specifier: ^7.46.0
-    version: 7.46.0(react-dom@18.3.1)(react@18.3.1)
+    specifier: ^7.45.7
+    version: 7.45.7(react-dom@18.3.1)(react@18.3.1)
   react:
     specifier: ^18
     version: 18.3.1
@@ -7319,8 +7319,8 @@ packages:
       react-dom: 18.3.1(react@18.3.1)
     dev: false
 
-  /rc-table@7.46.0(react-dom@18.3.1)(react@18.3.1):
-    resolution: {integrity: sha512-h8+tjSxv3Wk1gQp50X389tAHDOPJ/p9YA/GNdvzleHRE0hIrMnEZ1aGyJ4H/KVZSxm0O4eY2qblvWV9alPYAdQ==}
+  /rc-table@7.45.7(react-dom@18.3.1)(react@18.3.1):
+    resolution: {integrity: sha512-wi9LetBL1t1csxyGkMB2p3mCiMt+NDexMlPbXHvQFmBBAsMxrgNSAPwUci2zDLUq9m8QdWc1Nh8suvrpy9mXrg==}
     engines: {node: '>=8.x'}
     peerDependencies:
       react: '>=16.9.0'

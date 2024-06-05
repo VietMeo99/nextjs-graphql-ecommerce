@@ -22,6 +22,7 @@ import { useTranslation } from 'next-i18next';
 import { useModalAction } from '@/components/ui/modal/modal.context';
 import { toast } from 'react-toastify';
 import { useRouter } from 'next/router';
+import { TIME_CACHE } from '@/config/get-env';
 
 export function useProducts(options?: Partial<ProductQueryOptions>) {
   const { locale } = useRouter();
@@ -46,6 +47,7 @@ export function useProducts(options?: Partial<ProductQueryOptions>) {
     {
       getNextPageParam: ({ current_page, last_page }) =>
         last_page > current_page && { page: current_page + 1 },
+      staleTime: TIME_CACHE,
     },
   );
 

@@ -4,6 +4,7 @@ import {
 } from '@/components/auth/forgot-password';
 import { initialOtpState, optAtom } from '@/components/otp/atom';
 import { useModalAction } from '@/components/ui/modal/modal.context';
+import { TIME_CACHE } from '@/config/get-env';
 import { Routes } from '@/config/routes';
 import client from '@/framework/client';
 import { API_ENDPOINTS } from '@/framework/client/api-endpoints';
@@ -43,6 +44,7 @@ export function useUser() {
     [API_ENDPOINTS.USERS_ME],
     client.users.me,
     {
+      staleTime: TIME_CACHE,
       enabled: isAuthorized,
       retry: false,
       onSuccess: (data) => {
