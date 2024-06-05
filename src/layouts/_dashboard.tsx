@@ -1,7 +1,7 @@
 import DashboardSidebar from '@/components/dashboard/sidebar';
 import GeneralLayout from '@/components/layouts/_general';
 import classNames from 'classnames';
-import { ReactQueryDevtools } from 'react-query/types/devtools';
+// import { ReactQueryDevtools } from 'react-query/types/devtools';
 
 type Props = {
   layout?: string;
@@ -15,7 +15,7 @@ export default function DashboardLayout({
 }: React.PropsWithChildren<Props>) {
   return (
     <>
-      <ReactQueryDevtools initialIsOpen={false} />
+      {/* <ReactQueryDevtools initialIsOpen={false} /> */}
       <GeneralLayout layout="general">
         <div
           className={classNames(
