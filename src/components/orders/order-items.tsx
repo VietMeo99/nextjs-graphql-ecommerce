@@ -62,11 +62,9 @@ const OrderItemList = (_: any, record: any) => {
 };
 
 const RenderPrice = (_: any, record: any) => {
-  console.log('record :', record);
-
-  const { price } = usePrice({
-    amount: record?.pivot?.subtotal,
-  });
+  // const { price } = usePrice({
+  //   amount: record?.pivot?.subtotal,
+  // });
   return <p>{record?.pivot?.subtotal}</p>;
 };
 export const OrderItems = ({
